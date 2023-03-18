@@ -216,3 +216,241 @@ i_am_a_variable2 is valid
 1_am_a_variable is invalid  # this is invalid bcz a variable should begin with a letter or underscore.
 
 apple_&_oranges is invalid  # this is invalid bcz it is using a special character. python variables are case-sensitive, so capitalization matters.but lowercase,uppercase & allcapsnameis all valid in variables
+
+
+* Implicit conversion: The Interpreter automatically converts one data type into another.
+
+eg: 
+print ("this"+ "is" + "pretty" + "neat!" )
+
+output:
+    this is pretty neat!   # this interpreter automatically indentifies the strings & add another string together. This is pretty neat! Just don't forget to add spaces to each word. Otherwise, the computer will run them all together.
+
+
+* explicit conversion : In Python, to convert between one data type and another, we call a function with the name of the type we're converting to.
+
+
+    eg :    In this scenario, we have a directory with 5 files in it. Each file has a different size: 2048, 4357, 97658, 125, and 8. Fill in the blanks to calculate the average file size by having Python add all the values for you, and then set the files variable to the number of files. Finally, output a message saying "The average size is: " followed by the resulting number. Remember to use the str() function to convert the number into a string. 
+
+total = 2048 + ___ + ___ + ___ + ___
+files = ___
+average = total / files
+print("___" + str(___))   
+
+
+    * output :              # We combine one data type to another using explicit conversion. We can call str() function to do this .
+
+
+* Implicit vs Explicit Conversion:As we saw earlier in the video, some data types can be mixed and matched due to implicit conversion. Implicit conversion is where the interpreter helps us out and automatically converts one data type into another, without having to explicitly tell it to do so.
+
+By contrast, explicit conversion is where we manually convert from one data type to another by calling the relevant function for the data type we want to convert to. We used this in our video example when we wanted to print a number alongside some text. Before we could do that, we needed to call the str() function to convert the number into a string. Once the number was explicitly converted to a string, we could join it with the rest of our textual string and print the result.
+
+
+* Study Guide: 
+
+* Expressions and Variables: This study guide provides a quick-reference summary of what you learned in this lesson and serves as a guide for the upcoming practice quiz.  
+
+In the Expressions and Variables segment, you learned about expressions, variables, and the data types: string, integer, and float. You learned how to convert a value from one data type to another and you learned how to resolve a few common errors in Python.
+
+* Terms
+
+* expression - a combination of numbers, symbols, or other values that produce a result when evaluated
+
+* data types - classes of data (e.g., string, int, float, Boolean, etc.), which include the properties and behaviors of instances of the data type (variables)
+
+* variable - an instance of a data type class, represented by a unique name within the code, that stores changeable values of the specific data type
+
+* implicit conversion - when the Python interpreter automatically converts one data type to another
+
+* explicit conversion - when code is written to manually convert one data type to another using a data type conversion function:
+
+        str() - converts a value (often numeric) to a string data type
+
+        int() - converts a value (usually a float) to an integer data type
+
+        float() - converts a value (usually an integer) to a float data type
+
+ 
+
+* Coding skills
+* Skill Group 1
+
+    Use the assignment operator =  to assign values to variables
+
+    Use basic arithmetic operators with variables to create expressions
+
+    Use explicit conversion to change a data type from float to string
+
+
+    # The following lines assign the variable to the left of the = 
+    # assignment operator with the values and arithmetic expressions 
+    # on the right side of the = assignment operator.
+    hotel_room = 100
+    tax = hotel_room * 0.08
+    total = hotel_room + tax
+    room_guests = 4
+    share_per_person = total/room_guests 
+ 
+    # This line outputs the result of the final calculation stored
+    # in the variable "share_per_person"
+    print("Each person needs to pay: " + str(share_per_person)) # change a data type
+
+
+    * output: Each person needs to pay: 27.0
+
+
+* Skill Group 2
+
+    Output multiple string variables on a single line to form a sentence
+
+    Use the plus (+) connector or a comma to connect strings in a print() function
+
+    Create spaces between variables in  a print() functionv
+
+
+    # The following 5 lines assign strings to a list of variables.
+salutation = "Dr."
+first_name = "Prisha"
+middle_name = "Jai"
+last_name = "Agarwal"
+suffix = "Ph.D."
+ 
+print(salutation + " " + first_name + " " + middle_name + " " + last_name + ", " + suffix) 
+# The comma as a string ", " adds the conventional use of a comma plus a 
+# space to separate the last name from the suffix.
+ 
+# Alternatively, you could use commas in place of the + connector:
+print(salutation, first_name, middle_name, last_name,",", suffix)
+# However, you will find that this produces a space before a comma within a string.
+
+
+* output : Dr. Prisha Jai Agarwal, Ph.D.
+Dr. Prisha Jai Agarwal , Ph.D.
+
+
+* Skill Group 3
+
+Resolve TypeError caused by a data type mismatch issue
+
+Use an explicit conversion function
+
+    print("5 * 3 = " + str(5*3)) 
+ 
+# Resolution: 
+# print("5 * 3 = " + str(5*3))
+#
+# To avoid a type error between the string and the integer within the
+# print() function, you can make an explicit data type conversion by
+# using the str() function to convert the integer to a string. 
+
+    * output : 5 * 3 = 15
+
+
+* Skill Group 4
+
+Resolve a ZeroDivisionError caused by an attempt to divide by 0
+
+numerator = 7
+denominator = 2   # Possible resolution: Change the denominator value 
+result = numerator / denominator
+print(result)
+ 
+# One possible assumption for a number divided by zero error might
+# include the issue of a null value as a denominator (could happen when
+# using a loop to iterate over values in a database). In such cases, the
+# desired outcome may be to leave the numerator value intact. The
+# numerator value can be preserved by reassigning the denominator with 
+# the integer value of 1. The result would then equal the numerator
+
+ * output : 3.5
+
+
+* Define your own function: We can define our own set of keywords in python using "def" keyword like this,
+
+def greeting(name):
+    print("Welcome, " + name)               # print functions should be under def(indentation)
+
+            after we define this function we have to call the greeting defined above like this,
+
+greeting("mirza")
+
+    output: Welcome, mirza          # this def keyword achieves what we defined in the code as greeting.
+
+
+    eg: def greeting (name, department):
+ print( "Welcome, " + name )
+ print("You are department of " + department)
+
+greeting ("mirza","IT sector")
+
+output: Welcome, mirza
+You are department of IT sector
+
+
+* Extra notes: We looked at a few examples of built-in functions in Python, but being able to define your own functions is incredibly powerful. We start a function definition with the def keyword, followed by the name we want to give our function. After the name, we have the parameters, also called arguments, for the function enclosed in parentheses. A function can have no parameters, or it can have multiple parameters. Parameters allow us to call a function and pass it data, with the data being available inside the function as variables with the same name as the parameters. Lastly, we put a colon at the end of the line.
+
+After the colon, the function body starts. It’s important to note that in Python the function body is delimited by indentation. This means that all code indented to the right following a function definition is part of the function body. The first line that’s no longer indented is the boundary of the function body. It’s up to you how many spaces you use when indenting -- just make sure to be consistent. So if you choose to indent with four spaces, you need to use four spaces everywhere in your code.
+
+
+
+* Returning Values: this is keyword is used to use the value later the code.these keyword can be used multiple times the code to call the value of the keyword.
+
+def area_triangle(base,height):
+ return base*height/2                   #the return keyword doesnt print the value rightaway but stores the value to be used later in the code.
+
+area_a= area_triangle(5,7)
+area_b=area_triangle(7,3)
+sum=area_a+ area_b              #
+print("the sum of both area is " + str(sum))
+
+* output : 20.5
+
+Another example for returning value: 
+
+def convert_seconds(seconds):
+ hours = seconds //3600         # here // (floor division) means which will take the value of hours as an integer instead of decimal.eg : if the result value of hours is 2.5 , the floor division value will take 2 (integer)as the result 
+ minutes = (seconds - hours * 3600) //60
+ remaining_seconds = seconds - hours * 3600 - minutes *60
+ return hours, minutes, remaining_seconds
+
+hours, minutes, seconds = convert_seconds(5000)
+print (hours , minutes , seconds)
+
+
+output : 1 23 20
+
+* None: A special data type in python used to indicate that things are empty or that they returned nothing.Sometimes we don't want a function to simply run and finish. We may want a function to manipulate data we passed it and then return the result to us. This is where the concept of return values comes in handy. We use the return keyword in a function, which tells the function to pass data back. When we call the function, we can store the returned value in a variable. Return values allow our functions to be more flexible and powerful, so they can be reused and called multiple times.
+
+Functions can even return multiple values. Just don't forget to store all returned values in variables! You could also have a function return nothing, in which case the function simply exits.
+
+    eg : 
+
+def greeting(name):
+ print("welcome, " + name)
+
+result = greeting("christine")
+welcome, christine
+print(result)
+
+
+* The Principles of Code Reuse: 
+name="kay"
+number= len(name) * 9       # len : this a length of the paranthesis
+print("hello "+ name+ ". Your lucky number is " + str(number))
+
+name="cameron"
+number= len(name) * 9
+print("hello "+ name+ ". Your lucky number is " + str(number))
+
+    output : hello kay. Your lucky number is 27
+hello cameron. Your lucky number is 63 
+
+    This above code can be written in a simple way for the code to be used in multiple places, Like this 
+
+
+def lucky_number(name):
+ number=len(name) * 9
+ print ("Hello " + name + ". Your lucky number is " + str(number))
+
+ lucky_number('sujay")
+ lucky_number("john")
