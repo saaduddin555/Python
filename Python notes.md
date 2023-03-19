@@ -449,8 +449,426 @@ hello cameron. Your lucky number is 63
 
 
 def lucky_number(name):
- number=len(name) * 9
+number=len(name) * 9
  print ("Hello " + name + ". Your lucky number is " + str(number))
 
- lucky_number('sujay")
- lucky_number("john")
+lucky_number('sujay")
+lucky_number("john")
+
+* code style: we can write code in our own style but using right words make the code more readable by you & to others.
+
+    eg:
+
+def calculate(d):
+ q = 3.14
+ z = q * (d**2)
+ print (z)
+
+ this above use is messer to read & understand as we dont know what we are doing with it. But you can re-write this code in a more readable format, like this one
+
+ def circle_area(radius):
+ pi = 3.14
+ area = pi * (radius ** 2)
+ print (area)
+
+ circle_area(5)
+
+        By doing this we are achieving a high read ability & understanding of the code.
+
+        * output : 78.5
+
+
+* Extra notes:
+
+* Study Guide: Functions
+This study guide provides a quick-reference summary of what you learned in this lesson and serves as a guide for the upcoming practice quiz.  
+
+In the Functions segment, you learned how to define and call functions, utilize a function’s parameters, and return data from a function. You also learned how to differentiate and convert between different data types utilizing variables. Plus, you learned a few best practices for writing reusable and readable code. 
+
+* Terms
+    * return value - the value or variable returned as the end result of a function
+
+    * parameter (argument) -  a value passed into a function for use within the function
+
+    * refactoring code - a process to restructure code without changing functionality
+
+* Knowledge
+The purpose of the def() keyword is to define a new function. 
+
+Best practices for writing code that is readable and reusable:
+
+Create a reusable function - Replace duplicate code with one reusable function to make the code easier to read and repurpose.
+
+Refactor code - Update code so that it is self-documenting and the intent of the code is clear.
+
+Add comments - Adding comments is part of creating self-documenting code. Using comments allows you to leave notes to yourself and/or other programmers to make the purpose of the code clear.
+
+
+# Quiz:
+
+1.
+
+Question 1
+This function converts miles to kilometers (km).
+
+Complete the code to return the result of the conversion.
+
+NOTE: The following items occur outside of the function. Do not try to change the indentations on the associated code or you will receive an error. 
+
+Call the function to convert the trip distance from miles to kilometers. 
+
+Fill in the blank to print the result of the conversion. 
+
+Calculate the round-trip in kilometers by doubling the result, and fill in the blank to print the result. 
+
+
+# 1) Complete the function to return the result of the conversion
+def convert_distance(miles):
+	km = miles * 1.6  # approximately 1.6 km in 1 mile
+	return km
+
+# Do not indent any of the following lines of code as they are 
+# meant to be located outside of the function above
+
+my_trip_miles = 55
+
+# 2) Convert my_trip_miles to kilometers by calling the function above
+my_trip_km = 1.6 * (my_trip_miles)
+
+# 3) Fill in the blank to print the result of the my_trip_km conversion
+print("The distance in kilometers is " + str(my_trip_km))
+
+# 4) Calculate the round-trip in kilometers by doubling the result of
+#    my_trip_km. Fill in the blank to print the result.
+print("The round-trip in kilometers is " + str(2*my_trip_km))
+
+output : the code is right
+
+
+2.
+
+Question 2
+
+This function compares two numbers and returns them in increasing order.
+
+Fill in the blanks, so the print statement displays the result of the function call in order.
+
+Hint: if a function returns multiple values, don't forget to store these values in multiple variables
+
+
+# This function compares two numbers and returns them
+# in increasing order.
+def order_numbers(number1, number2):
+	if number2 > number1:
+		return number1, number2
+	else:
+		return number2, number1
+
+# 1) Fill in the blanks so the print statement displays the result
+#    of the function call
+smaller, bigger = order_numbers(100, 99)
+print(smaller, bigger)
+
+
+
+3.
+Question 3
+
+What are the values passed into functions as input called?
+
+Parameters
+
+
+4.
+Question 4
+
+Complete the first line of the “print_seconds” function so that it accepts three parameters: hours, minutes, and seconds. Remember to use the “def” keyword to tell the Python interpreter the block of code is intended to define a function.
+
+def print_seconds(hours, minutes, seconds):
+    print(hours*3600+minutes*60+seconds)
+
+
+print_seconds(1,2,3)
+
+output: Here is your output:
+3723
+
+Correct. The formula should multiply the hours variable by
+3600 and the minutes variable by 60, then add these two
+products to the seconds variable.
+
+
+* Comparison Operators with Equations
+The following examples demonstrate how to use comparison operators with the data types int (integers, whole numbers) and float (number with a decimal point or fractional value). Comparison operators return Boolean results. As you learned previously, Boolean is a data type that can hold only one of two values: True or False.  
+
+    * The comparison operators include: 
+
+==    (equality) 
+
+!=     (not equal to) 
+
+>       (greater than)
+
+<      (less than)
+
+>=    (greater than or equal to)
+
+<=    (less than or equal to)
+
+
+PART 1: Equality == and Not Equal To != Operators
+In Python, you can use comparison operators to compare values. When a comparison is made, Python returns a Boolean result: True or False. Note that Boolean data types are not string data types (Boolean True is not equal to the string "True").  
+
+To check if two values are the same, use the equality operator: == 
+
+To check if two values are not the same, use the not equal to operator: != 
+
+The print() function can be used to display the results of the comparisons.
+
+Examples:
+
+print(32 == 30+2)   # The == operator checks if the 2 values are 
+True                # equal to each other. If they are equal, 
+                    # Python returns a True result.
+
+
+print(5+10 == 6+7)  # If the two values are not equal, as in the
+False               # expression 5+10 == 6+7 (or 15 == 13), Python          
+                    # returns a False result.
+
+
+print(10-4 != 10+4) # The != operator checks if the 2 values are
+True                # NOT equal to each other. If true, Python              
+                    # returns a True result. 
+
+
+print(9/3 != 3*1)   # In this last example, 9/3 != 3*1 (or 3 != 3)
+False               # is false. So, Python returns a False value.
+
+    
+
+The equality == operator versus the equals = operator 
+It is important to note that the equality == comparison operator performs a different task than the equals = assignment operator. The equals = operator assigns the value on the right side of the equals = to the object (e.g., a variable) on the left side of the equals = operator. 
+
+
+
+# The = equals assignment operator is used to assign a value to a 
+# variable.
+
+my_variable = 3*5           # Assigns a value to my_variable      
+print(my_variable)          # Printing the variable returns the 
+15                          # value assigned to the variable.
+
+
+                              
+# The == equality comparison operator checks if the values of the two
+# expressions on either side of the == operator are equivalent to one 
+# another.
+      
+print(my_variable == 3*5)   # Printing the variable returns a Boolean 
+True                        # True or False result. 
+
+
+PART 2: Greater Than > and Less Than < Operators
+The comparison operators greater than > and less than < also return a True or False Boolean result after comparing two values.
+
+To check if one value is larger than another value, use the greater than operator: > 
+
+To check if one value is smaller than another value, use the less than operator: < 
+
+Examples:
+
+
+print(11 > 3*3)         # The > operator checks if the left value is
+True                    # greater than the right value. If true, it
+                        # returns a True result.
+
+
+print(4/2 > 8-4)        # If the > operator finds that the left value
+False                   # is NOT greater than the right value, the
+                        # comparison will return a False result.
+
+
+print(4/2 < 8-4)        # The < operator checks  if the left value is
+True                    # less than the right side. If true, the
+                        # comparison returns a True result.
+
+
+print(11 < 3*3)         # If the < operator finds that the left side is False                   # NOT less than the right value, Python returns
+                        # a False result.
+
+
+PART 3: Greater Than or Equal to >= and Less Than or Equal to <= Operators
+Like the other comparison operators, the greater than or equal to >= and less than or equal to <= operators return a True or False Boolean result when a comparison is made.
+
+To check if one value is larger than or equal to another value, use the greater than or equal to operator: >= 
+
+To check if one value is smaller than or equal to another value, use the less than or equal to operator: <= 
+
+Examples:
+
+
+
+print(12*2 >= 24)   # The >= operator checks if the left value is
+True                # greater than or equal to the right value. 
+                    # If one of these conditions is true,  
+                    # Python returns a True result. In this case  
+                    # the two values are equal. So, the comparison
+                    # returns a True result.
+
+
+print(18/2 >= 15)   # If the >= comparison determines that the left False
+False               # value is NOT greater than or equal to the
+                    # right, it returns a False result.
+
+print(12*2 <= 30)   # The <= operator checks if the left value is
+True                # less than or equal to the right value. In 
+                    # this case, the left value is less than the
+                    # right value. Again, if one of the two 
+                    # conditions is true, Python returns a True
+                    # result.
+
+
+print(15 <= 18/2)   # If the <= comparison determines that the left 
+False               # value is NOT less than or equal to the right
+                    # value, the comparison returns a False result. 
+
+
+* Comparison Operators with Strings
+In this reading, you will learn more about what comparison operators can and cannot do. If you use the == (equality) and != (not equal to) operators with strings, you can check if two strings contain the same text or not. You can also alphabetize strings using > (greater than), < (less than), >= (greater than or equal to), <= (less than or equal to) comparison operators. As with numeric data types, comparison operators used with strings will return Boolean (True, False) results.  
+
+  
+
+PART 1: Equality == and Not Equal to != Operators with Strings
+In Python, you can use comparison operators to compare strings. The equality == and the not equal to != operators are helpful when you need to search for a specific string in a body of text, a log file, a spreadsheet, a database, and more. You can also check user input strings to compare them to another string. Note that Boolean data types are not string data types (Boolean True is not equal to the string "True").  
+
+Examples:
+
+# The == operator can check if two strings are equal to each other. 
+# If they are equal, the Python interpreter returns a True result.
+print("a string" == "a string")
+True
+
+
+# In this example, the equality == comparison is between "4 + 5" and
+# 4 + 5. Since the left data type is a string and the right data type
+# is an integer, the two values cannot be equal. So, the comparison
+# returns a False result.
+print("4 + 5" == 4 + 5)
+False
+
+
+# The != operator can check if the two strings are NOT equal to each
+# other. If they are indeed not equal, then Python returns a True result.
+print("rabbit" != "frog")
+True
+
+
+# In this example, the variable event_city has been assigned the string 
+# value "Shanghai". This variable is compared to a static string, 
+# "Shanghai", using the != operator. As, the strings "Shanghai" and 
+# "Shanghai" are the same, the comparison of "Shanghai" != "Shanghai" 
+# is false. Accordingly, Python will return a False result.
+event_city = "Shanghai"
+print(event_city != "Shanghai")
+False
+
+# This last example illustrates the result of trying to compare two
+# items of different data types using the equality == operator. The
+# two items are not equal, so the comparison returns False.
+print("three" == 3)
+False
+
+
+PART 2: The Greater Than > and Less Than < Operators
+The comparison operators greater than > and less than < can be used to alphabetize words in Python. The letters of the alphabet have numeric codes in Unicode (also known as ASCII values). The uppercase letters A to Z are represented by the Unicode values 65 to 90. The lowercase letters a to z are represented by the Unicode values 97 to 122. 
+
+    * To check if the first letter(s) of a string have a larger Unicode value (meaning the letter is closer to 122 or lowercase z) than the first letter of another string, use the greater than operator: >
+
+    * To check if the first letter(s) of a string have a smaller Unicode value (meaning the letter is closer to 65 or uppercase A) than the first letter of another string, use the less than operator: < 
+
+Like numeric comparisons with the greater than > and less than < operators, comparisons between strings also return Boolean True or False results.  
+
+Examples: 
+
+# The greater than > operator checks if the left string has a higher 
+# Unicode value than the right string. If true, the Python interpreter
+# returns a True result. Since W has a Unicode value of 87, and you can 
+# easily calculate that F has a Unicode value of 70, this comparison is
+# the same as 87 > 70. As this is true, Python will return a True 
+# result.
+print("Wednesday" > "Friday")
+True
+ 
+ 
+# The less than < operator checks if the left string has a lower 
+# Unicode value than the right string. If you reference the Unicode 
+# chart above, you can see that all lowercase letters have higher 
+# Unicode values than uppercase letters. We can see that B has a 
+# Unicode value of 66 and b has a Unicode value of 98. This 
+# comparison is the same as 66 < 98, which is true. So, Python will 
+# return a True result.
+print("Brown" < "brown")
+True
+
+
+# If the strings have the same first few letters, the comparison will 
+# cycle through each letter of each string, from left to right until it 
+# finds two letters that have different Unicode values. In this example, 
+# both strings share the initial substring "sun", but then have 
+# different letters with different Unicode values in the fourth place 
+# in each string. So, the fourth letters 'b' and 't' of the two
+# strings are used for the comparison. Since 'b' does not have a higher
+# Unicode value than 't', the comparison returns a False result.
+print("sunbathe" > "suntan")
+False
+
+
+# If two identical strings are compared using the less than < comparison
+# operator, this will produce a False result because they are equal.
+print("Lima" < "Lima")
+False
+
+
+# This last example illustrates the result of trying to compare two
+# items of different data types using the less than < operator. The 
+# greater than > and less than operators < cannot be used to compare
+# two different data types. 
+print("Five" < 6)
+'''
+Error on line 1:
+    print("Five" < 6)
+TypeError: '<' not supported between instances of 'str' and 'int'
+
+
+PART 3: The Greater Than or Equal To >= and Less Than or Equal To <= Operators
+The greater than or equal to >= and less than or equal to <= operators can be used with strings as well. Like the other comparison operators, they will return a True or False Boolean result when a comparison is made between two strings. 
+
+    * To check if a string has a larger or equal Unicode value than the first letter(s) of another string, use the greater than or equal to operator: >= 
+
+    * To check if a string has a smaller or equal Unicode value than the first letter(s) of another string, use the less than or equal to operator: <=
+
+At this point, you should be familiar with how comparison operators work in Python. Can you determine what the results will be from the comparisons listed below? When you are ready to check your answers, click Run.
+
+    1. "my computer" >= "my chair"
+
+    2. "Spring" <= "Winter"
+
+    3. "pineapple" >= "pineapple"
+
+
+
+# Use the Unicode chart in Part 2 to determine if the Unicode values of 
+# the first letters of each string are higher, lower, or equal to one
+# another. 
+
+
+var1 = "my computer" >= "my chair"
+var2 = "Spring" <= "Winter"
+var3 = "pineapple" >= "pineapple"
+ 
+print("Is \"my computer\" greater than or equal to \"my chair\"? Result: ", var1)
+print("Is \"Spring\" less than or equal to \"Winter\"? Result: ", var2)
+print("Is \"pineapple\" less than or equal to \"pineapple\"? Result: ", var3)
+
+
