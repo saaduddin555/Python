@@ -1066,3 +1066,384 @@ print(odd_numbers(11)) # Should print [1, 3, 5, 7, 9, 11]
 print(odd_numbers(1))  # Should print [1]
 print(odd_numbers(-1)) # Should print []
 
+List Comprehension Examples
+You can create a list from a sequence using a for loop, but there’s a more streamlined way to do this by using a list comprehension. List comprehensions allow you to create a new list from a sequence or a range in a single line.
+
+
+Simple List Comprehension
+For example, [ x*2 for x in range(1,11) ] is a simple list comprehension. This single line of code iterates over a range from 1 to 10, multiplies each element in the range by 2, and creates a new list from all multiples of 2 from 2 to 20.
+
+### Simple List Comprehension
+print("List comprehension result:")
+
+# The following list comprehension compacts several lines 
+# of code into one line:
+print([x*2 for x in range(1,11)]) 
+
+
+### Long form for loop
+print("Long form code result:")
+
+# The list comprehension above accomplishes the same result as
+# the long form version of the code:
+my_list = []
+for x in range(1,11):
+   my_list.append(x*2)
+print(my_list)
+# Click Run to compare the two results.
+
+List Comprehension with Conditional Statement:
+
+You can also use conditionals with list comprehensions to build even more complex and powerful statements. You can do this by appending an if statement to the end of the list comprehension. For example, [ x for x in range(1,101) if x % 10 == 0 ] generates a new list containing all the integers divisible by 10 from 1 to 100. The if statement evaluates each value in the range from 1 to 100 to check if it’s evenly divisible by 10. If it is, the number is added to a new list.
+
+### List Comprehension with Conditional Statement
+print("List comprehension result:")
+
+# The following list comprehension compacts multiple lines 
+# of code into one line:
+print([ x for x in range(1,101) if x % 10 == 0 ])
+
+### Long form for loop with nested if-statement
+print("Long form code result:")
+
+# The list comprehension above accomplishes the same result as
+# the long form version of the code:
+my_list = []
+for x in range(1,101):
+  if x % 10 == 0:
+    my_list.append(x)
+print(my_list)
+# Click Run to observe the two results.
+
+List comprehensions can be really powerful, but they can also be complex, resulting in code that’s hard to read. Be careful when using them, since it might make it more difficult for someone else looking at your code to easily understand what the code is doing. It is a best practice to add descriptive comments about any list comprehensions used in your code. This helps to communicate the purpose of list comprehensions to other coders. Comments will also help you remember the goal of the code when performing future code additions and maintenance.  
+
+
+
+Practice exercise:
+This exercise will walk you through how to write a list comprehension to create a list of squared numbers (n*n). It needs to return a list of squares of consecutive numbers between “start” and “end” inclusively. For example, squares(2, 3) should return a list containing [4, 9].
+
+The function receives the variables “start” and “end” through the function parameters. 
+
+In the return line, start by entering the list brackets [ ]
+
+Between the brackets [ ], enter the arithmetic expression to square a variable “n”. 
+
+To the right of the square expression, write a for loop that iterates over “n” in a range from the “start” to “end” variables.
+
+Ensure the “end” range value is included in the range() by adding 1 to it.
+
+Run your code to see if it works!  If needed, the solution to this code is included in the “Study Guide: List Operations and Methods” reading under “Skill Group 2” (list comprehensions). 
+
+def squares(start, end):
+    return ___ 
+
+
+print(squares(2, 3))  # Should print [4, 9]
+print(squares(1, 5))  # Should print [1, 4, 9, 16, 25]
+print(squares(0, 10)) # Should print [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+---
+
+Study Guide: Lists Operations and Methods:
+
+This study guide provides a quick-reference summary of what you learned in this lesson and serves as a guide for the upcoming practice quiz. 
+
+In the Lists and Tuples segment, you learned about the differences between lists and tuples, how to modify the contents of a list, how to iterate over lists and tuples, how to use the enumerate() function, and how to create list comprehensions. 
+
+
+Knowledge
+Common sequence operations
+Lists and tuples are both sequences and they share a number of sequence operations. The following common sequence operations are used by both lists and tuples:
+
+. len(sequence) - Returns the length of the sequence.
+
+. for element in sequence - Iterates over each element in the sequence.
+
+. if element in sequence - Checks whether the element is part of the sequence.
+
+. sequence[x] - Accesses the element at index [x] of the sequence, starting at zero
+
+. sequence[x:y] - Accesses a slice starting at index [x], ending at index [y-1]. If [x] is omitted, the index will start at 0 by default. If [y] is  omitted, the len(sequence) will set the ending index position by default.
+
+. for index, element in enumerate(sequence) - Iterates over both the indices and the elements in the sequence at the same time.
+
+
+List-specific operations and methods:
+
+One major difference between lists and tuples is that lists are mutable (changeable) and tuples are immutable (not changeable). There are a few operations and methods that are specific to changing data within lists:
+
+. list[index] = x - Replaces the element at index [n] with x.
+
+. list.append(x) - Appends x to the end of the list.
+
+. list.insert(index, x) - Inserts x at index position [index].
+
+. list.pop(index) - Returns the element at [index] and removes it from the list. If [index] position is not in the list, the last element in the list is returned and removed.
+
+. list.remove(x) - Removes the first occurrence of x in the list.
+
+. list.sort() - Sorts the items in the list.
+
+. list.reverse() - Reverses the order of items of the list.
+
+. list.clear() - Deletes all items in the list.
+
+. list.copy() - Creates a copy of the list.
+
+. list.extend(other_list) - Appends all the elements of other_list at the end of list
+
+
+List comprehensions:
+
+A list comprehension is an efficient method for creating a new list from a sequence or a range in a single line of code. It is a best practice to add descriptive comments about any list comprehensions used in your code, as their purpose can be difficult to interpret by other coders.
+
+. [expression for variable in sequence] - Creates a new list based on the given sequence. Each element in the new list is the result of the given expression.
+
+. Example: my_list = [ x*2 for x in range(1,11) ]
+
+. [expression for variable in sequence if condition] - Creates a new list based on a specified sequence. Each element is the result of the given  expression; elements are added only if the specified condition is true. 
+
+    .Example: my_list = [ x for x in range(1,101) if x % 10 == 0 ]
+
+
+Coding skills
+Skill Group 1
+. Use a for loop to modify elements of a list.
+
+. Use the list.append(old,new) method.
+
+. Use the string.endswith() and string.replace() methods to modify the elements within a list.
+
+# This block of code changes the year on a list of dates.
+# The "years" list is given with existing elements. 
+years = ["January 2023", "May 2025", "April 2023", "August 2024", "September 2025", "December 2023"]
+
+
+# The variable "updated_years" is initialized as a list data type 
+# using empty square brackets []. This list will hold the new list
+# with the updated years. 
+updated_years = []
+
+# The for loop checks each "year" element in the list "years".
+for year in years:
+
+    # The if-statement checks if the "year" element ends with the 
+    # substring "2023". 
+    if year.endswith("2023"):
+
+        # If True, then a temporary variable "new" will hold the 
+        # modified "year" element where the "2023" substring is 
+        # replaced with the substring "2024".
+        new = year.replace("2023","2024")
+
+        # Then, the list "updated_years" is appended with the changed
+        # element held in the temporary variable "new".
+        updated_years.append(new)
+        
+    # If False, the original "year" element will be appended to the 
+    # the "updated_years" list unchanged.
+    else:
+        updated_years.append(year)
+
+
+print(updated_years) 
+# Should print ["January 2024", "May 2025", "April 2024", "August 2024", "September 2025", "December 2024"]
+
+Skill Group 2
+. Use a list comprehension to return values
+
+# This list comprehension creates a list of squared numbers (n*n). It
+# accepts two integer variables through the function’s parameters.
+def squares(start, end):
+    
+# The list comprehension calculates the square of a variable integer 
+# "n", where "n" ranges from the "start" to "end" variables inclusively.
+# To be inclusive in a range(), add +1 to the end of range variable.
+    return [n*n for n in range(start,end+1)] 
+
+
+print(squares(2, 3))  # Should print [4, 9]
+print(squares(1, 5))  # Should print [1, 4, 9, 16, 25]
+print(squares(0, 10)) # Should print [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+Skill Group 3
+. Use the string[index] method within a list comprehension.  
+
+. Use a list comprehension to modify elements of a list.
+
+. Use the string.replace() method within a list comprehension.
+
+# This block of code also changes the year on a list of dates using a
+# different approach than demonstrated in Skill Group 1. By using a 
+# list comprehension, you can see how it is possible to refactor the
+# code to a shorter, more efficient code block. 
+
+# The "years" list is given with existing elements.
+years = ["January 2023", "May 2025", "April 2023", "August 2024", "September 2025", "December 2023"]
+
+# The list comprehension below creates a new list "updated_years" to
+# hold the command to replace the "2023" substring of the "year"
+# element with the substring "2024". This action will be executed if
+# the last 4 indices of the "year" string is equal to the substring
+# "2023". If false (else), the "year" element will be included in the
+# new list "updated_years" unchanged.
+updated_years = [year.replace("2023","2024") if year[-4:] == "2023" else year for year in years]
+
+
+print(updated_years) 
+# Should print ["January 2024", "May 2025", "April 2024", "August 2024", "September 2025", "December 2024"]
+
+Skill Group 4
+. Use the string.split() method to separate a string into a list of individual words.
+
+. Iterate over the new list using a for loop.
+
+. Modify each element in the list by slicing the element’s string at a given [1:] index position and appending the substring to the end of the element.
+
+. Convert a list back into a string.
+
+# This function splits a given string into a list of elements. Then, it
+# modifies each element by moving the first character to the end of the 
+# element and adds a dash between the element and the moved character. 
+# For example, the element "2two" will be changed to "two-2". Finally,
+# the function converts the list back to a string, and returns the
+# new string.
+def change_string(given_string):
+
+# Initialize "new_string" as a string data type by using empty quotes.
+    new_string = ""
+    # Split the "given_string" into a "new_list", with each "element"
+    # holding an individual word from the string.
+    new_list = given_string.split()
+
+    # The for loop iterates over each "element" in the "new_list".
+    for element in new_list:
+
+        # Convert the list into a "new_string" by using the assignment
+        # operator += to concatenate the following items: 
+        # + Each list "element" (starting at index position [1:]), 
+        # + a dash "-", 
+        # + append the first character of the "element" (using the index 
+        # [0]) to the end of the "element", and finally,
+        # + a space " " to separate each "element" in the "new_string".
+        new_string += element[1:] + "-"  + element[0] + " "
+
+    # Return the list that has been converted back into a string.
+    return new_string
+
+
+print(change_string("1one 2two 3three 4four 5five")) 
+# Should print "one-1 two-2 three-3 four-4 five-5"  
+
+ Skill Group 5  
+ . Use the string.join() method to concatenate a string that provides a list name and its elements
+
+# This function accepts a list name and a list of elements, and returns
+# a string with the format: "The "list_name" list includes: element1, 
+# element2, element3". 
+def list_elements(list_name, elements):
+
+    # This task can be completed in a single line of code. The 
+    # concatenation of strings, "list_name", and the list "elements" can
+    # occur on the return line. In this case, the string "The " is added 
+    # to the "list_name", plus the string " list includes: ", then the
+    # "elements" are joined using a comma to separate each element of the 
+    # list.
+    return "The " + list_name + " list includes: " + ", ".join(elements)
+
+
+print(list_elements("Printers", ["Color Printer", "Black and White Printer", "3-D Printer"])) 
+# Should print "The Printers list includes: Color Printer, Black and White Printer, 3-D Printer"
+
+Resources
+For additional information about list and tuple operations and methods, please visit:
+
+Common Sequence Operations - Official python.org documentation for list, tuple, and range sequence operations. https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range
+
+Lists - Official python.org documentation for list operations and methods. https://docs.python.org/3/library/stdtypes.html#lists
+
+Tuples - Official python.org documentation for tuple operations and methods https://docs.python.org/3/library/stdtypes.html#tuples 
+
+
+Practice Quiz:
+
+Q:
+Given a list of filenames, we want to rename all the files with extension hpp to the extension h. To do this, we would like to generate a new list called newfilenames, consisting of the new filenames. Fill in the blanks in the code using any of the methods you’ve learned thus far, like a for loop or a list comprehension.
+
+filenames = ["program.c", "stdio.hpp", "sample.hpp", "a.out", "math.hpp", "hpp.out"]
+# Generate newfilenames as a list containing the new filenames
+# using as many lines of code as your chosen method requires.
+___  
+
+print(newfilenames) 
+# Should be ["program.c", "stdio.h", "sample.h", "a.out", "math.h", "hpp.out"]
+
+Q:
+Let's create a function that turns text into pig latin: a simple text transformation that modifies each word moving the first character to the end and appending "ay" to the end. For example, python ends up as ythonpay.
+
+def pig_latin(text):
+  say = ""
+  # Separate the text into words
+  words = ___
+  for word in words:
+    # Create the pig latin word and add it to the list
+    ___
+    # Turn the list back into a phrase
+  return ___
+		
+print(pig_latin("hello how are you")) # Should be "ellohay owhay reaay ouyay"
+print(pig_latin("programming in python is fun")) # Should be "rogrammingpay niay ythonpay siay unfay"
+
+Q:
+The permissions of a file in a Linux system are split into three sets of three permissions: read, write, and execute for the owner, group, and others. Each of the three values can be expressed as an octal number summing each permission, with 4 corresponding to read, 2 to write, and 1 to execute. Or it can be written with a string using the letters r, w, and x or - when the permission is not granted.
+ For example: 
+ 640 is read/write for the owner, read for the group, and no permissions for the others; converted to a string, it would be: "rw-r-----"
+ 755 is read/write/execute for the owner, and read/execute for group and others; converted to a string, it would be: "rwxr-xr-x"
+ Fill in the blanks to make the code convert a permission in octal format into a string format.
+ 
+def octal_to_string(octal):
+    result = ""
+    value_letters = [(4,"r"),(2,"w"),(1,"x")]
+    # Iterate over each of the digits in octal
+    for ___ in [int(n) for n in str(octal)]:
+        # Check for each of the permissions values
+        for value, letter in value_letters:
+            if ___ >= value:
+                result += ___
+                ___ -= value
+            else:
+                ___
+    return result
+    
+print(octal_to_string(755)) # Should be rwxr-xr-x
+print(octal_to_string(644)) # Should be rw-r--r--
+print(octal_to_string(750)) # Should be rwxr-x---
+print(octal_to_string(600)) # Should be rw-------
+
+Q:
+The group_list function accepts a group name and a list of members, and returns a string with the format: group_name: member1, member2, … For example, group_list("g", ["a","b","c"]) returns "g: a, b, c". Fill in the gaps in this function to do that.
+
+def group_list(group, users):
+  members = ___
+  return ___
+
+print(group_list("Marketing", ["Mike", "Karen", "Jake", "Tasha"])) # Should be "Marketing: Mike, Karen, Jake, Tasha"
+print(group_list("Engineering", ["Kim", "Jay", "Tom"])) # Should be "Engineering: Kim, Jay, Tom"
+print(group_list("Users", "")) # Should be "Users:"
+
+Q:
+The guest_list function reads in a list of tuples with the name, age, and profession of each party guest, and prints the sentence "Guest is X years old and works as __." for each one. For example, guest_list(('Ken', 30, "Chef"), ("Pat", 35, 'Lawyer'), ('Amanda', 25, "Engineer")) should print out: Ken is 30 years old and works as Chef. Pat is 35 years old and works as Lawyer. Amanda is 25 years old and works as Engineer. Fill in the gaps in this function to do that.
+
+def guest_list(guests):
+	for ___:
+		___
+		print(___.format(___))
+
+guest_list([('Ken', 30, "Chef"), ("Pat", 35, 'Lawyer'), ('Amanda', 25, "Engineer")])
+
+#Click Run to submit code
+"""
+Output should match:
+Ken is 30 years old and works as Chef
+Pat is 35 years old and works as Lawyer
+Amanda is 25 years old and works as Engineer
+"""
