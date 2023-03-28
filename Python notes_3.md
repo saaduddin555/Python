@@ -287,8 +287,49 @@ The inverse of the join method is the split method. This allows us to split a st
 
 * Formatting Strings:
 
+ex:
 
+name = "manny"
+number = len(name) *  3
+print("Hello{}, your lucky number is {}".format(name, number))
 
+Explanantion:
+In this example, we have two variables, name and number. We generate a string that has those variables in it by using the curly brackets placeholder to show where the variables should be written. We then pass the variables as a parameter to the format method. See how it doesn't matter that name is a string and number is an integer? The format method deals with that, so we don't have to. Pretty neat, right? The curly brackets aren't always empty. By using certain expressions inside those brackets, we can take advantage of the full power of the format expression. Heads up, this can get complex fast. If at any point, you get confused, don't panic, you only really need to understand the basic usage of the format method we just saw. One of the things we can put inside the curly brackets is the name of the variable we want in that position to make the whole string more readable. This is particularly relevant when the text can get rewritten or translated and the variables might switch places.
+
+Ex2:
+
+name = "manny"
+number = len(name) *  3
+print("Your lucky number is {number}, {name}.".format(name=name, number=len(name)*3))
+
+Explanation:
+In our earlier example, we could rewrite the message to make the variables appear in a different order. In that case, we'd need to pass the parameters to format in a slightly different way.Because we're using placeholders with variable names, the order in which the variables are passed to the format function doesn't matter. But for this to work, we need to set the names we're going to use and assign a value to them inside the parameters to format.
+
+EX3:
+
+price = 7.5
+with_tax = price * 1.09
+print(price,with_tax)
+
+Let's say you want to output the price of an item with and without tax. Depending on what the tax rate is, the number might be a long number with a bunch of decimals. So if something costs $7.5 without tax and the tax rate is 9%, the price with tax would be $8.175. First off, ouch, and also, since there's no such thing as half a penny anymore, that number doesn't make sense. So to fix this we can make the format function print only two decimals, like this.
+
+Ex4:
+price = 7.5
+with_tax = price * 1.09
+print("base price: ${:.2f}. with tax: ${:.2f}".format(price, with_tax))
+
+Explanation:
+In this case between the curly brackets we're writing a formatting expression. There are a bunch of different expressions we can write. These expressions are needed when we want to tell Python to format our values in a way that's different from the default. The expression starts with a colon to separate it from the field name that we saw before. After the colon, we write .2f. This means we're going to format a float number and that there should be two digits after the decimal dot.
+
+Ex5:
+
+def to_celsius(x):
+    return (x-32)*5/9
+for x in range(0,101,10):
+    print("{:>3}F | {:>6.2f} C".format(x, to_celsius(x)))
+
+Explanation:
+Our table looked kind of ugly because it was full of float numbers that had way too many decimal digits. Using the format function, we can make it look a lot nicer. In these two expressions we're using the greater than operator to align text to the right so that the output is neatly aligned. In the first expression we're saying we want the numbers to be aligned to the right for a total of three spaces. In the second expression we're saying we want the number to always have exactly two decimal places and we want to align it to the right at six spaces. We can use string formatting like this to make the output of our program look nice and also to generate useful logging and debugging messages. Over the course of my sysadmin career, I've grown used to formatting strings to create more informative error messages. They help me understand what's going on with a script that's failing. There's a ton more formatting options you can use when you need them. 
 
 
 Modify the student_grade function using the format method, so that it returns the phrase "X received Y% on the exam". For example, student_grade("Reed", 80) should return "Reed received 80% on the exam".
@@ -798,3 +839,230 @@ print(replace_ending("The weather is nice in May", "may", "april"))
 # Should display "The weather is nice in May"
 print(replace_ending("The weather is nice in May", "May", "April")) 
 # Should display "The weather is nice in April"
+
+
+
+#  LIST
+Lists in Python are defined using square brackets, with the elements stored in the list separated by commas: list = ["This", "is", "a", "list"]. You can use the len() function to return the number of elements in a list: len(list) would return 4. You can also use the in keyword to check if a list contains a certain element. If the element is present, it will return a True boolean. If the element is not found in the list, it will return False. For example, "This" in list would return True in our example. Similar to strings, lists can also use indexing to access specific elements in a list based on their position. You can access the first element in a list by doing list[0], which would allow you to access the string "This".
+
+In Python, lists and strings are quite similar. They’re both examples of sequences of data. Sequences have similar properties, like (1) being able to iterate over them using for loops; (2) support indexing; (3) using the len function to find the length of the sequence; (4) using the plus operator + in order to concatenate; and (5) using the in keyword to check if the sequence contains a value. Understanding these concepts allows you to apply them to other sequence types as well.
+
+EX:
+
+x = ["now", "we", "are", "cooking!"]        # this is a class list data type
+type(x)
+
+EX2:
+
+x = ["now", "we", "are", "cooking!"]        # this is a class list data type
+print(x)
+
+EX3:
+
+x = ["now", "we", "are", "cooking!"]        # this is a class list string data type
+len(x)
+are in x            # this will print a boolean result "true or false"
+
+
+EX4:
+x = ["now", "we", "are", "cooking!"]        # this is a class list string data type
+print(x[0])
+
+EX5:
+
+x = ["now", "we", "are", "cooking!"]        # this is a class list string data type
+print(x[1:3])
+
+EX6:
+
+x = ["now", "we", "are", "cooking!"]        # this is a class list string data type
+print(x[:3])
+
+
+Practice:
+
+Using the "split" string method from the preceding lesson, complete the get_word function to return the {n}th word from a passed sentence. For example, get_word("This is a lesson about lists", 4) should return "lesson", which is the 4th word in this sentence. Hint: remember that list indexes start at 0, not 1. 
+
+def get_word(sentence, n):
+	# Only proceed if n is positive 
+	if n > 0:
+		words = ___
+		# Only proceed if n is not more than the number of words 
+		if n <= len(words):
+			return(___)
+	return("")
+
+print(get_word("This is a lesson about lists", 4)) # Should print: lesson
+print(get_word("This is a lesson about lists", -4)) # Nothing
+print(get_word("Now we are cooking!", 1)) # Should print: Now
+print(get_word("Now we are cooking!", 5)) # Nothing
+
+* squences in python:
+In Python, strings and lists are both examples of sequences. There are other sequences too, and they all share a bunch of operations like iterating over them using for-loops, indexing using the len function to know the length of the sequence, using plus to concatenate two sequences and using in to verify if the sequence contains an element. So this is great news. While understanding indexing is hard, once you know it for one data type, you've pretty much mastered it for every data type. 
+
+
+# Modifying the Contents of a List: 
+lists and strings are different is that lists are mutable. Which is another fancy word to say that they can change. This means we can add, remove, or modify elements in a list.
+
+* Append method:
+The append method adds a new element at the end of the list. It doesn't matter how long the list is. The element always gets added to the end. You could start with an empty list and add all of its items using append. like this
+
+fruits = ["pineapple", "banana", "apple", "melon"]
+fruits.append("kiwi")
+print(fruits)
+
+* Insert method:
+If you want to insert an element in a different position, instead of at the end, you can use the insert method.The insert method takes an index as the first parameter and an element as the second parameter. It adds the element at that index in the list. To add it as the first element, we use index zero and we can use any other number.
+
+fruits = ["pineapple", "banana", "apple", "melon"]
+fruits.insert(0,"kiwi")         # this insert method adds the fruit kiwi in 0 zero i.e first
+print(fruits)
+
+
+* Remove method:
+The remove method removes from the list the first occurrence of the element we pass to it.
+
+fruits = ["pineapple", "banana", "apple", "melon"]
+fruits.remove("apple")         # this remove method removes the string from the fruits list 
+print(fruits)
+
+* Pop Method:
+Another way we can remove elements is by using the pop method, which receives an index.The pop method returns the element that was removed at the index that was passed. 
+
+fruits = ["pineapple", "banana", "apple", "melon"]
+fruits.pop(3)         # this pop method  displays the string using index 
+print(fruits)
+
+* 
+In the last way to modify the contents of a list is to change an item by assigning something else to that position, like this.
+
+fruits = ["pineapple", "banana", "apple", "melon"]
+fruits[2] = "berry"     # this method adds the string to the defined index number
+print(fruits)
+
+
+# EXTRA NOTES
+
+Modifying Lists
+While lists and strings are both sequences, a big difference between them is that lists are mutable. This means that the contents of the list can be changed, unlike strings, which are immutable. You can add, remove, or modify elements in a list.
+
+You can add elements to the end of a list using the append method. You call this method on a list using dot notation, and pass in the element to be added as a parameter. For example, list.append("New data") would add the string "New data" to the end of the list called list.
+
+If you want to add an element to a list in a specific position, you can use the method insert. The method takes two parameters: the first specifies the index in the list, and the second is the element to be added to the list. So list.insert(0, "New data") would add the string "New data" to the front of the list. This wouldn't overwrite the existing element at the start of the list. It would just shift all the other elements by one. If you specify an index that’s larger than the length of the list, the element will simply be added to the end of the list.
+
+You can remove elements from the list using the remove method. This method takes an element as a parameter, and removes the first occurrence of the element. If the element isn’t found in the list, you’ll get a ValueError error explaining that the element was not found in the list.
+
+You can also remove elements from a list using the pop method. This method differs from the remove method in that it takes an index as a parameter, and returns the element that was removed. This can be useful if you don't know what the value is, but you know where it’s located. This can also be useful when you need to access the data and also want to remove it from the list.
+
+Finally, you can change an element in a list by using indexing to overwrite the value stored at the specified index. For example, you can enter list[0] = "Old data" to overwrite the first element in a list with the new string "Old data".
+
+* Tuples
+As we mentioned earlier, strings and lists are both examples of sequences. Strings are sequences of characters, and are immutable. Lists are sequences of elements of any data type, and are mutable. The third sequence type is the tuple. Tuples are like lists, since they can contain elements of any data type. But unlike lists, tuples are immutable. They’re specified using parentheses instead of square brackets.
+
+You might be wondering why tuples are a thing, given how similar they are to lists. Tuples can be useful when we need to ensure that an element is in a certain position and will not change. Since lists are mutable, the order of the elements can be changed on us. Since the order of the elements in a tuple can't be changed, the position of the element in a tuple can have meaning. A good example of this is when a function returns multiple values. In this case, what gets returned is a tuple, with the return values as elements in the tuple. The order of the returned values is important, and a tuple ensures that the order isn’t going to change. Storing the elements of a tuple in separate variables is called unpacking. This allows you to take multiple returned values from a function and store each value in its own variable.
+
+EX:
+full = ('grace', 'm', 'hopper')
+
+we have a tuple that represents someone's full name. The first element of the tuple is the first-name. The second element is the middle initial, and the third element is the last-name. If we add another element somewhere in there, what would that element represent? It would just be confusing and our code wouldn't know what to do with it, and that's why modifying isn't allowed. In other words, when using tuples the position of the elements inside the tuple have meaning.
+
+
+Practice
+
+Let's use tuples to store information about a file: its name, its type and its size in bytes. Fill in the gaps in this code to return the size in kilobytes (a kilobyte is 1024 bytes) up to 2 decimal places. 
+
+def file_size(file_info):
+	___, ___, ___= file_info
+	return("{:.2f}".format(___ / 1024))
+
+print(file_size(('Class Assignment', 'docx', 17875))) # Should print 17.46
+print(file_size(('Notes', 'txt', 496))) # Should print 0.48
+print(file_size(('Program', 'py', 1239))) # Should print 1.21
+
+* Iterating over Lists and Tuples
+When we covered for loops, we showed the example of iterating over a list. This lets you iterate over each element in the list, exposing the element to the for loop as a variable. But what if you want to access the elements in a list, along with the index of the element in question? You can do this using the enumerate() function. The enumerate() function takes a list as a parameter and returns a tuple for each element in the list. The first value of the tuple is the index and the second value is the element itself.
+
+EX:
+
+animals = ["lion", "zebra", "dolphin", "monkey"]
+chars = 0
+for animal in animals:
+    char += len(animals)
+
+print("Total characters: {}, average length: {}".format(chars, chars/len(animals)))
+
+Explanantion:In this code, we're iterating over a list of strings. For each of the strings, we get its length and add it to the total amount of characters. At the end we print the total and the average which we get by dividing the total by the length of the list. You can see we're using the len function twice, once to get the length of the string and then again to get the amount of elements in the list. What if you wanted to know the index of an element while going through the list? You could use the range function and then use indexing to access the elements at the index that range returned. You could use a range function and then use indexing to access the elements at the index that range just returned or you could just use the enumerate function.
+
+* Enumerate:
+
+winners = ["Ashley", "Dylan", "Reese"]
+for index, person in enumerate(winners):
+    print("{} - {}".format(index + 1, person))
+
+
+Winners equals, we'll make a list, Ashley, Dylan, and Reese and close the list for index, person in enumerate winners.print curly brackets dash curly brackets.format index plus one person.The enumerate function returns a tuple for each element in the list. The first value in the tuple is the index of the element in the sequence. The second value in the tuple is the element in the sequence. You're the real winner with the enumerate function. It does all the work for you.
+
+EX2:
+
+def full_emails(people):
+    result = []
+    for email, name in people:
+        result.append("{} <{}>".format(name, email))
+    return result
+print(full_emails([("mirza@gmail.com", "mirza"),("saad@gmai.com", "saad")]))
+
+Explananation:
+Say you have a list of tuples containing two strings each. The first string is an email address and the second is the full name of the person with that email address. You want to write a function that creates a new list containing one string per person including their name and the email address between angled brackets. the format usually used in emails like this. So what do we need to do?We'll start by defining a function that receives a list of people, def full_emails, takes the argument people.Remember, people is a list of tuples where the first element is the email address and the second one is the full name. So in our function, we'll first create the variable that we'll use as a return value which will be a list and we'll call it result. Result equals empty list. We'll then iterate over the list of people. We know this list contains tuples of two strings each. So we'll unpack the values directly when iterating in variables that we'll call email and name for email and name in people. Now, our result variable is a list and it should contain strings. So we'll append to the resulting string to the results list, result.append. The string that will append will be formatted in the way we want. To do that, we'll use the format method with the two variables of our iteration. So curly brackets, curly brackets.format, name, and email.Once we're done with the iteration, we'll return the list which should now contain all the necessary emails, return result.Will this work? What do you think? Let's try it out. Print full emails Alex@example.com, Alex Diego.Shay@example.com is the email and we'll call Shay Brandt as the name.Yes, this worked as expected. Before we move on, a quick word of caution about some common errors when dealing with lists in Python. Because we use the range function so much with for loops, you might be tempted to use it for iterating over indexes of a list and then to access the elements through indexing. You could be particularly inclined to do this if you're used to other programming languages before. Because in some languages, the only way to access an element of a list is by using indexes. Real talk, this works but looks ugly. It's more idiomatic in Python to iterate through the elements of the list directly or using enumerate when you need the indexes like we've done so far.
+
+* QUESTION:
+Try out the enumerate function for yourself in this quick exercise. Complete the skip_elements function to return every other element from the list, this time using the enumerate function to check if an element is in an even position or an odd position.
+
+def skip_elements(elements):
+	# code goes here
+	
+	return ___
+
+print(skip_elements(["a", "b", "c", "d", "e", "f", "g"])) # Should be ['a', 'c', 'e', 'g']
+print(skip_elements(['Orange', 'Pineapple', 'Strawberry', 'Kiwi', 'Peach'])) # Should be ['Orange', 'Strawberry', 'Peach']
+
+
+* List Comprehensions
+
+multiples = []
+for x in range(1,11)
+  multiple.append(x*7)
+
+print(multiples)
+
+Explanation:
+creating lists based on sequences is such a common task Python provides a technique called list comprehension, that lets us do it in just one line. This is how we would do the same with list comprehension. Multiples =, we'll start the list, [ x * 7 for x in range(1,11)], and close the list. Print(multiples), it should be the same. List comprehensions let us create new lists based on sequences or ranges. So we can use this technique whenever we want to create a list based on a range like in this example. Or based on the contents of a list a tuple a string or any other Python sequence. The syntax tries to copy how you would express these concepts with natural language, although it can still be confusing sometimes. 
+
+Ex:
+
+languages = ["python", "perl", "ruby", "go", "java", "c"]
+lengths = [len(language) for language in languages]
+print(lenghths)
+
+Explanation:
+creating lists based on sequences is such a common task Python provides a technique called list comprehension, that lets us do it in just one line. This is how we would do the same with list comprehension. Multiples =, we'll start the list, [ x * 7 for x in range(1,11)], and close the list. Print(multiples), it should be the same. List comprehensions let us create new lists based on sequences or ranges. So we can use this technique whenever we want to create a list based on a range like in this example. Or based on the contents of a list a tuple a string or any other Python sequence. The syntax tries to copy how you would express these concepts with natural language, although it can still be confusing sometimes.
+
+EX2:
+
+z = [x for x in range (0,101) if x % 3 == 0]
+print(z)            # this prints multiples of 3 because the if condition states there should not be any remainder
+
+Say we wanted all the numbers that are divisible by 3 between 0 and a 100, we could create a list like this z = [x for x in range(0,101 ) if x module 3 == 0] print(z). In this case we just want the element x to be a part of the list, but we only want the numbers where the remainder of the division by 3 is 0. So we add the conditional clause after the range. Using list comprehensions when programming in Python is totally optional. 
+
+* QUESTION:
+
+The odd_numbers function returns a list of odd numbers between 1 and n, inclusively. Fill in the blanks in the function, using list comprehension. Hint: remember that list and range counters start at 0 and end at the limit minus 1.
+
+def odd_numbers(n):
+	return [x for x in ___ if ___]
+
+print(odd_numbers(5))  # Should print [1, 3, 5]
+print(odd_numbers(10)) # Should print [1, 3, 5, 7, 9]
+print(odd_numbers(11)) # Should print [1, 3, 5, 7, 9, 11]
+print(odd_numbers(1))  # Should print [1]
+print(odd_numbers(-1)) # Should print []
+
