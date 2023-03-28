@@ -263,7 +263,538 @@ output:
 
 The split method returns a list of all the words in the initial string and it automatically splits by any whitespace. It can optionally take a parameter and split the strings by another character, like a comma or a dot.
 
+# EXTRA NOTES
 
-# FORMATTING STRINGS
+* Advanced String Methods:
 
-jdjsvvksjjbskj
+Advanced String Methods
+We've covered a bunch of String class methods already, so let's keep building on those and run down some more advanced methods.
+
+The string method lower will return the string with all characters changed to lowercase. The inverse of this is the upper method, which will return the string all in uppercase. Just like with previous methods, we call these on a string using dot notation, like "this is a string".upper(). This would return the string "THIS IS A STRING". This can be super handy when checking user input, since someone might type in all lowercase, all uppercase, or even a mixture of cases.
+
+You can use the strip method to remove surrounding whitespace from a string. Whitespace includes spaces, tabs, and newline characters. You can also use the methods  lstrip and rstrip to remove whitespace only from the left or the right side of the string, respectively.
+
+The method count can be used to return the number of times a substring appears in a string. This can be handy for finding out how many characters appear in a string, or counting the number of times a certain word appears in a sentence or paragraph.
+
+If you wanted to check if a string ends with a given substring, you can use the method endswith. This will return True if the substring is found at the end of the string, and False if not.
+
+The isnumeric method can check if a string is composed of only numbers. If the string contains only numbers, this method will return True. We can use this to check if a string contains numbers before passing the string to the int() function to convert it to an integer, avoiding an error. Useful!
+
+We took a look at string concatenation using the plus sign, earlier. We can also use the join method to concatenate strings. This method is called on a string that will be used to join a list of strings. The method takes a list of strings to be joined as a parameter, and returns a new string composed of each of the strings from our list joined using the initial string. For example, " ".join(["This","is","a","sentence"]) would return the string "This is a sentence".
+
+The inverse of the join method is the split method. This allows us to split a string into a list of strings. By default, it splits by any whitespace characters. You can also split by any other characters by passing a parameter.
+
+
+* Formatting Strings:
+
+
+
+
+
+Modify the student_grade function using the format method, so that it returns the phrase "X received Y% on the exam". For example, student_grade("Reed", 80) should return "Reed received 80% on the exam".
+
+def student_grade(name, grade):
+	return ""
+
+print(student_grade("Reed", 80))
+print(student_grade("Paige", 92))
+print(student_grade("Jesse", 85))
+
+
+
+
+
+
+
+* String Formatting:
+You can use the format method on strings to concatenate and format strings in all kinds of powerful ways. To do this, create a string containing curly brackets, {}, as a placeholder, to be replaced. Then call the format method on the string using .format() and pass variables as parameters. The variables passed to the method will then be used to replace the curly bracket placeholders. This method automatically handles any conversion between data types for us. 
+
+If the curly brackets are empty, they’ll be populated with the variables passed in the order in which they're passed. However, you can put certain expressions inside the curly brackets to do even more powerful string formatting operations. You can put the name of a variable into the curly brackets, then use the names in the parameters. This allows for more easily readable code, and for more flexibility with the order of variables.
+
+You can also put a formatting expression inside the curly brackets, which lets you alter the way the string is formatted. For example, the formatting expression {:.2f} means that you’d format this as a float number, with two digits after the decimal dot. The colon acts as a separator from the field name, if you had specified one. You can also specify text alignment using the greater than operator: >. For example, the expression {:>3.2f} would align the text three spaces to the right, as well as specify a float number with two decimal places. String formatting can be very handy for outputting easy-to-read textual output.
+
+
+* String Reference Guide:
+
+In Python, there are a lot of things you can do with strings. In this guide, you’ll find the most common string operations and string methods.
+
+String operations
+len(string) - Returns the length of the string
+
+for character in string - Iterates over each character in the string
+
+if substring in string - Checks whether the substring is part of the string
+
+string[i] - Accesses the character at index i of the string, starting at zero
+
+string[i:j] - Accesses the substring starting at index i, ending at index j minus 1. If i is omitted, its value defaults to 0. If j is omitted, the value will default to len(string).
+
+
+
+String methods
+string.lower() - Returns a copy of the string with all lowercase characters
+
+string.upper() - Returns a copy of the string with all uppercase characters
+
+string.lstrip() - Returns a copy of the string with the left-side whitespace removed
+
+string.rstrip() - Returns a copy of the string with the right-side whitespace removed
+
+string.strip() - Returns a copy of the string with both the left and right-side whitespace removed
+
+string.count(substring) - Returns the number of times substring is present in the string
+
+string.isnumeric() - Returns True if there are only numeric characters in the string. If not, returns False.
+
+string.isalpha() - Returns True if there are only alphabetic characters in the string. If not, returns False.
+
+string.split() - Returns a list of substrings that were separated by whitespace (whitespace can be a space, tab, or new line)
+
+string.split(delimiter) - Returns a list of substrings that were separated by whitespace or a delimiter
+
+string.replace(old, new) - Returns a new string where all occurrences of old have been replaced by new.
+
+delimiter.join(list of strings) - Returns a new string with all the strings joined by the delimiter 
+
+Check out the official documentation for all available String methods.  https://docs.python.org/3/library/stdtypes.html#string-methods
+
+
+* Formatting Strings Guide:
+
+Python offers different ways to format strings. In the video, we explained the format() method. In this reading, we'll highlight three different ways of formatting strings. For this course you only need to know the format() method. But on the internet, you might find any of the three, so it's a good idea to know that the others exist.
+
+Using the format() method
+The format method returns a copy of the string where the {} placeholders have been replaced with the values of the variables. These variables are converted to strings if they weren't strings already. Empty placeholders are replaced by the variables passed to format in the same order.
+
+
+# "base string with {} placeholders".format(variables)
+
+example = "format() method"
+
+formatted_string = "this is an example of using the {} on a string".format(example)
+
+print(formatted_string)
+
+"""Outputs:
+this is an example of using the format() method on a string
+"""
+
+* If the placeholders indicate a number, they’re replaced by the variable corresponding to that order (starting at zero).
+
+# "{0} {1}".format(first, second)
+
+first = "apple"
+second = "banana"
+third = "carrot"
+
+formatted_string = "{0} {2} {1}".format(first, second, third)
+
+print(formatted_string)
+
+"""Outputs:
+apple carrot banana
+"""
+
+* If the placeholders indicate a field name, they’re replaced by the variable corresponding to that field name. This means that parameters to format need to be passed indicating the field name.
+
+# "{var1} {var2}".format(var1=value1, var2=value2)
+
+
+"{:exp1} {:exp2}".format(value1, value2)
+
+
+
+* If the placeholders include a colon, what comes after the colon is a formatting expression. See below for the expression reference.
+
+Official documentation for the format string syntax
+
+# {:d} integer value
+'{:d}'.format(10.5) → '10'
+
+
+Formatting expressions
+
+Expr                    Meaning                                                           Example
+
+{:d}                    integer value                                               '{:d}'.format(10.5) → '10'
+
+{:.2f}                  floating point with that many decimals                      '{:.2f}'.format(0.5) → '0.50'
+
+{:.2s}                  string with that many characters                             '{:.2s}'.format('Python') → 'Py'
+
+{:<6s}                  string aligned to the left that many spaces                 '{:<6s}'.format('Py') → 'Py    '
+
+{:>6s}                  string aligned to the right that many spaces                '{:>6s}'.format('Py') → '    Py'
+
+{:^6s}                  string centered in that many spaces                         '{:^6s}'.format('Py') → '  Py  '
+
+
+ Check out the official documentation for all available expressions.
+
+https://docs.python.org/3/library/string.html#format-specification-mini-language
+
+
+Old string formatting (Optional)
+The format() method was introduced in Python 2.6. Before that, the % (modulo) operator could be used to get a similar result. While this method is no longer recommended for new code, you might come across it in someone else's code. This is what it looks like:
+
+ "base string with %s placeholder" % variable
+
+The % (modulo) operator returns a copy of the string where the placeholders indicated by %  followed by a formatting expression are replaced by the variables after the operator.
+
+
+ "base string with %d and %d placeholders" % (value1, value2)
+
+To replace more than one value, the values need to be written between parentheses. The formatting expression needs to match the value type.
+
+ 
+
+"%(var1) %(var2)" % {var1:value1, var2:value2}
+
+Variables can be replaced by name using a dictionary syntax (we’ll learn about dictionaries in an upcoming video).
+
+ 
+
+"Item: %s - Amount: %d - Price: %.2f" % (item, amount, price)
+
+The formatting expressions are mostly the same as those of the format() method. 
+
+Check out the official documentation for old string formatting.
+
+Formatted string literals (Optional)
+This feature was added in Python 3.6 and isn’t used a lot yet. Again, it's included here in case you run into it in the future, but it's not needed for this or any upcoming courses.
+
+A formatted string literal or f-string is a string that starts with 'f' or 'F' before the quotes. These strings might contain {} placeholders using expressions like the ones used for format method strings.
+
+The important difference with the format method is that it takes the value of the variables from the current context, instead of taking the values from parameters.
+
+ Examples:
+
+>>> name = "Micah"
+
+>>> print(f'Hello {name}')
+
+Hello Micah
+
+ 
+
+>>> item = "Purple Cup"
+
+>>> amount = 5
+
+>>> price = amount * 3.25
+
+>>> print(f'Item: {item} - Amount: {amount} - Price: {price:.2f}')
+
+Item: Purple Cup - Amount: 5 - Price: 16.25
+
+ Check out the official documentation for f-strings. https://docs.python.org/3/reference/lexical_analysis.html#f-strings
+----
+
+
+Study Guide: Strings
+
+This study guide provides a quick-reference summary of what you learned in this lesson and serves as a guide for the upcoming practice quiz. The string readings in this section are great syntax guides to help you on the Strings Practice Quiz.
+
+In the Strings segment, you learned about the parts of a string, string indexing and slicing, creating new strings, string methods and operations, and formatting strings. 
+
+
+Knowledge
+
+String Operations and Methods
+
+    * .format() - String method that can be used to concatenate and format strings. 
+
+            * {:.2f} - Within the .format() method, limits a floating point variable to 2 decimal places. The number of decimal places can be customized.
+
+* len(string) - String operation that returns the length of the string.
+
+* string[x] - String operation that accesses the character at index [x] of the string, where indexing starts at zero.
+
+* string[x:y] - String operation that accesses a substring starting at index [x] and ending at index [y-1]. If x is omitted, its value defaults to 0. If y is omitted, the value will default to len(string).
+
+* string.replace(old, new) - String method that returns a new string where all occurrences of an old substring have been replaced by a new substring.
+
+* string.lower() - String method that returns a copy of the string with all lowercase characters.
+
+
+Coding skills:
+
+Skill Group 1:
+. Use a for loop to iterate through each letter of a string.
+
+. Add a character to the front of a string.
+
+. Add a character to the end of a string.
+
+. Use the .lower() string method to convert the case (uppercase/lowercase) of the letters within a string variable. This method is often used to eliminate cases as a factor when comparing two strings. For example, all lowercase “cat” is not equal to “Cat” because “Cat” contains an uppercase letter. To be able to compare the two strings to see if they are the same word, you can use the .lower() string method to remove capitalization as a factor in the string comparison.
+
+
+# This function accepts a given string and checks each character of 
+# the string to see if it is a letter or not. If the character is a
+# letter, that letter is added to the end of the string variable
+# "forwards" and to the beginning of the string variable "backwards".
+def mirrored_string(my_string):
+
+    # Two variables are initialized as string data types using empty 
+    # quotes. The variable "forwards" will hold the "my_string"
+    # minus any character that is not a letter. The "backwards" 
+    # variable will hold the same letters as "forwards", but in  
+    # in reverse order.
+    forwards = ""
+    backwards = ""
+
+    # The for loop iterates through each character of the "my_string"
+    for character in my_string:
+
+        # The if-statement checks if the character is not a space.
+        if character.isalpha():
+
+            # If True, the body of the loop adds the character to the
+            # to the end of "forwards" and to the front of
+            # "backwards". 
+            forwards += character
+            backwards = character + backwards
+
+        # If False (meaning the character is not a letter), no action
+        # is needed. This coding approach results prevents any 
+        # non-alphabetical characters from being written to the
+        # "forwards" and "backwards" variables. The for loop will 
+        # restart until all characters in "my_string" have been
+        # processed.
+        
+    # The final if-statement compares the "forwards" and "backwards"
+    # strings to see if the letters are the same both forwards and
+    # backwards. Since Python is case sensitive, the two strings will 
+    # need to be converted to use the same case for this comparison. 
+    if forwards.lower() == backwards.lower():
+        return True
+    return False
+ 
+print(mirrored_string("12 Noon")) # Should be True
+print(mirrored_string("Was it a car or cat I saw")) # Should be False
+print(mirrored_string("'eve, Madam Eve")) # Should be True
+
+
+Skill Group 2:
+
+. Use the format() method, with {} placeholders for variable data, to create a new string.
+
+. Use a formatting expression, like {:.2f}, to format a float variable and configure the number of decimal places to display for the float. 
+
+# This function converts measurement equivalents. Output is formatted 
+# as, "x ounces equals y pounds", with y limited to 2 decimal places. 
+def convert_weight(ounces):
+
+    # Conversion formula: 1 pound = 16 ounces
+    pounds = ounces/16 
+    
+    # The result is composed using the .format() method. There are two
+    # placeholders in the string: the first is for the "ounces" 
+    # variable and the second is for the "pounds" variable. The second
+    # placeholder formats the float result of the conversion 
+    # calculation to be limited to 2 decimal places.
+    result = "{} ounces equals {:.2f} pounds".format(ounces,pounds)
+    return result
+
+
+print(convert_weight(12)) # Should be: 12 ounces equals 0.75 pounds
+print(convert_weight(50.5)) # Should be: 50.5 ounces equals 3.16 pounds
+print(convert_weight(16)) # Should be: 16 ounces equals 1.00 pounds
+
+
+ Skill Group 3  
+
+. Within the format() parameters, select characters at specific index [ ] positions from a variable string.  
+
+. Use the format() method, with {} placeholders for variable data, to create a new string.
+
+# This function generates a username using the first 3 letters of a
+# user’s last name plus their birth year. 
+def username(last_name, birth_year):
+    
+    # The .format() method will use the first 3 letters at index 
+    # positions [0,1,2] of the "last_name" variable for the first
+    # {} placeholder. The second {} placeholder concatenates the user’s
+    #  "birth_year" to that string to form a new string username.
+    return("{}{}".format(last_name[0:3],birth_year))
+
+
+print(username("Ivanov", "1985")) 
+# Should display "Iva1985" 
+print(username("Rodríguez", "2000")) 
+# Should display "Rod2000" 
+print(username("Deng", "1991")) 
+# Should display "Den1991"
+
+
+
+Skill Group 4:
+
+. Use the .replace() method to replace part of a string.  
+
+. Use the len() function to get the number of index positions in a string.
+
+. Slice a string at a specific index position.
+
+
+
+# This function checks a given schedule entry for an old date and, if 
+# found, the function replaces it with a new date. 
+def replace_date(schedule, old_date, new_date):
+
+    # Check if the given "old_date" appears at the end of the given 
+    # string variable "schedule". 
+    if schedule.endswith(old_date):
+
+        # If True, the body of the if-block will run. The variable "n" is
+        # used to hold the slicing index position. The len() function
+        # is used to measure the length of the string "new_date".
+        p = len(old_date)
+
+        # The "new_schedule" string holds the updated string with the 
+        # old date replaced by the new date. The schedule[:-p] part of 
+        # the code trims the "old_date" substring from "schedule" 
+        # starting at the final index position (or right-side) counting
+        # towards the left the same number of index positions as 
+        # calculated from len(old_date). Then, the code schedule[-p:]
+        # starts the indexing position at the slot where the first
+        # character of the "old_date" used to be positioned. The 
+        # .replace(old_date, new_date) code inserts the "new_date" into
+        # the position where the "old_date" used to exist.  
+        new_schedule = schedule[:-p] + schedule[-p:].replace(old_date, new_date)
+
+        # Returns the schedule with the new date.
+        return new_schedule
+        
+    # If the schedule does not end with the old date, then return the
+    # original sentence without any modifications.
+    return schedule
+ 
+ 
+print(replace_date("Last year’s annual report will be released in March 2023", "2023", "2024")) 
+# Should display "Last year’s annual report will be released in March 2024"
+print(replace_date("In April, the CEO will hold a conference", "April", "May")) 
+# Should display "In April, the CEO will hold a conference"
+print(replace_date("The convention is scheduled for October", "October", "June")) 
+# Should display "The convention is scheduled for June"
+
+
+Practice Quiz: 
+
+Question 1
+Fill in the blanks to complete the is_palindrome function. This function checks if a given string is a palindrome. A palindrome is a string that contains the same letters in the same order, whether the word is read from left to right or right to left. Examples of palindromes are words like kayak and radar, and phrases like "Never Odd or Even". The function should ignore blank spaces and capitalization when checking if the given string is a palindrome. Complete this function to return True if the passed string is a palindrome, False if not. 
+
+def is_palindrome(input_string):
+    # Two variables are initialized as string date types using empty 
+    # quotes: "reverse_string" to hold the "input_string" in reverse
+    # order and "new_string" to hold the "input_string" minus the 
+    # spaces between words, if any are found.
+    new_string = ""
+    reverse_string = ""
+
+    # Complete the for loop to iterate through each letter of the
+    # "input_string"
+    for ___:
+
+        # The if-statement checks if the "letter" is not a space.
+        if letter != " ":
+
+            # If True, add the "letter" to the end of "new_string" and
+            # to the front of "reverse_string". If False (if a space
+            # is detected), no action is needed. Exit the if-block.
+            new_string = ___
+            reverse_string = ___
+
+    # Complete the if-statement to compare the "new_string" to the
+    # "reverse_string". Remember that Python is case-sensitive when
+    # creating the string comparison code. 
+    if ___:
+
+        # If True, the "input_string" contains a palindrome.
+        return True
+		
+    # Otherwise, return False.
+    return False
+
+
+print(is_palindrome("Never Odd or Even")) # Should be True
+print(is_palindrome("abc")) # Should be False
+print(is_palindrome("kayak")) # Should be True
+
+
+q:
+
+Using the format method, fill in the gaps in the convert_distance function so that it returns the phrase "X miles equals Y km", with Y having only 1 decimal place. For example, convert_distance(12) should return "12 miles equals 19.2 km".
+
+def convert_distance(miles):
+    km = miles * 1.6 
+    result = "{} miles equals {___} km".___
+    return result
+
+
+print(convert_distance(12)) # Should be: 12 miles equals 19.2 km
+print(convert_distance(5.5)) # Should be: 5.5 miles equals 8.8 km
+print(convert_distance(11)) # Should be: 11 miles equals 17.6 km
+
+
+q:
+
+If we have a string variable named Weather = "Rainfall", which of the following will print the substring "Rain" or all characters before the "f"?
+
+
+print(Weather[:4])
+
+
+print(Weather[4:])
+
+
+print(Weather[1:4])
+
+
+print(Weather[:"f"])
+
+
+q:
+
+Question 4
+Fill in the gaps in the nametag function so that it uses the format method to return first_name and the first initial of last_name followed by a period. For example, nametag("Jane", "Smith") should return "Jane S."
+
+def nametag(first_name, last_name):
+    return("___.".format(___))
+
+
+print(nametag("Jane", "Smith")) 
+# Should display "Jane S." 
+print(nametag("Francesco", "Rinaldi")) 
+# Should display "Francesco R." 
+print(nametag("Jean-Luc", "Grand-Pierre")) 
+# Should display "Jean-Luc G." 
+
+
+q:
+
+The replace_ending function replaces a specified substring at the end of a given sentence with a new substring. If the specified substring does not appear at the end of the given sentence, no action is performed and the original sentence is returned. If there is more than one occurrence of the specified substring in the sentence, only the substring at the end of the sentence is replaced. For example, replace_ending("abcabc", "abc", "xyz") should return abcxyz, not xyzxyz or xyzabc. The string comparison is case-sensitive, so replace_ending("abcabc", "ABC", "xyz") should return abcabc (no changes made).  
+
+
+def replace_ending(sentence, old, new):
+    # Check if the old substring is at the end of the sentence 
+    if ___:
+        # Using i as the slicing index, combine the part
+        # of the sentence up to the matched string at the 
+        # end with the new string
+        i = ___
+        new_sentence = ___
+        return new_sentence
+
+
+    # Return the original sentence if there is no match 
+    return sentence
+    
+print(replace_ending("It's raining cats and cats", "cats", "dogs")) 
+# Should display "It's raining cats and dogs"
+print(replace_ending("She sells seashells by the seashore", "seashells", "donuts")) 
+# Should display "She sells seashells by the seashore"
+print(replace_ending("The weather is nice in May", "may", "april")) 
+# Should display "The weather is nice in May"
+print(replace_ending("The weather is nice in May", "May", "April")) 
+# Should display "The weather is nice in April"

@@ -6,7 +6,6 @@
 
 NOTE: Whenever you are writing a loop, check that you're initializing all the variables you want to use before you see them.
 
-
 ex: 
 
 x = 0
