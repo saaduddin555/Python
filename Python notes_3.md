@@ -1447,3 +1447,405 @@ Ken is 30 years old and works as Chef
 Pat is 35 years old and works as Lawyer
 Amanda is 25 years old and works as Engineer
 """
+* Dictionary:
+Dictionaries are another data structure in Python. They’re similar to a list in that they can be used to organize data into collections. However, data in a dictionary isn't accessed based on its position. Data in a dictionary is organized into pairs of keys and values. You use the key to access the corresponding value. Where a list index is always a number, a dictionary key can be a different data type, like a string, integer, float, or even tuples.
+
+When creating a dictionary, you use curly brackets: {}. When storing values in a dictionary, the key is specified first, followed by the corresponding value, separated by a colon. For example, animals = { "bears":10, "lions":1, "tigers":2 } creates a dictionary with three key value pairs, stored in the variable animals. The key "bears" points to the integer value 10, while the key "lions" points to the integer value 1, and "tigers" points to the integer 2. You can access the values by referencing the key, like this: animals["bears"]. This would return the integer 10, since that’s the corresponding value for this key.
+
+You can also check if a key is contained in a dictionary using the in keyword. Just like other uses of this keyword, it will return True if the key is found in the dictionary; otherwise it will return False.
+
+Dictionaries are mutable, meaning they can be modified by adding, removing, and replacing elements in a dictionary, similar to lists. You can add a new key value pair to a dictionary by assigning a value to the key, like this: animals["zebras"] = 2. This creates the new key in the animal dictionary called zebras, and stores the value 2. You can modify the value of an existing key by doing the same thing. So animals["bears"] = 11 would change the value stored in the bears key from 10 to 11. Lastly, you can remove elements from a dictionary by using the del keyword. By doing del animals["lions"] you would remove the key value pair from the animals dictionary.
+
+EX:
+x = {"mirza":2, "saad":4}
+print(type(x))			# here we are defining a dictionary
+
+x = {"mirza":2, "saad":4}
+print("mirza" in x)		# we are checking whether mirza is present inside x, true or false
+
+
+x = {"mirza":2, "saad":4}
+print(x["mirza"])		# this returns the value assisnted to the key x.
+
+
+* Deleting a dictionary: we can delete elements from a dictionary with the del keyword by passing the dictionary and the key to the element as if we were trying to access it.
+
+x = {"mirza":2, "saad":4}
+del x ["saad"]			# del function deletes the file inside the dictionary
+print(x)
+
+*Iterating over the Contents of a Dictionary:
+
+x = {"jpg":2, "txt":4, "csv":23,"py":21}
+for extension in x:			# So if you use a dictionary in a for loop, the iteration variable will go through the keys in the dictionary.
+    print(extension)
+
+---
+ If you want to access the associated values, you can either use the keys as indexes of the dictionary or you can use the items method which returns a tuple for each element in the dictionary. The tuple's first element is the key. Its second element is the value. Let's try that with our example dictionary.
+ 
+ 
+x = {"jpg":2, "txt":4, "csv":23,"py":21}
+for ext, amount in x.items():		# 
+    print("There are {} files with the .{} extension".format(amount,ext))
+
+OT:
+There are 2 files with the .jpg extension
+There are 4 files with the .txt extension
+There are 23 files with the .csv extension
+There are 21 files with the .py extension
+
+ For ext amount in file_counts.items(): print("there are and then {} files with the .{} extension".format(amount, ext)). Sometimes you might just be interested in the keys of a dictionary. Other times you might just want the values.
+ 
+---
+Sometimes you might just be interested in the keys of a dictionary. Other times you might just want the values. You can access both with their corresponding dictionary methods like this. file_counts.keys() file counts.values(). These methods return special data types related to the dictionary, but you don't need to worry about what they are exactly. You just need to iterate them as you would with any sequence. For value in file_counts.values(): print value. So we can use items to get key value pairs, keys to get the keys, and values to get just the values.like this
+
+EX:
+
+x = {"jpg":2, "txt":4, "csv":23,"py":21}
+print(x.keys())				# just prints the value of key x
+
+---
+
+x = {"jpg":2, "txt":4, "csv":23,"py":21}
+print(x.values())			# just prints the value of key x
+
+---
+
+x = {"jpg":2, "txt":4, "csv":23,"py":21}
+for value in x.values():		# this prints the values of x
+    print(value)
+
+---
+Practice
+
+Complete the code to iterate through the keys and values of the cool_beasts dictionary. Remember that the items method returns a tuple of key, value for each element in the dictionary.
+
+cool_beasts = {"octopuses":"tentacles", "dolphins":"fins", "rhinos":"horns"}
+for ___ in cool_beasts.items():
+    print("{} have {}".format(___))
+     
+---
+Let's check out a simple example of counting how many times each letter appears in a piece of text.
+
+def count_letters(text):
+    result = {}
+    for letter in text:
+        if letter not in result:
+            result[letter] = 0
+        result[letter] += 1
+    return result
+print(count_letters("why are people lazy ?"))
+
+In this code, we're first initializing an empty dictionary, then going through each letter in the given string. For each letter, we check if it's not already in the dictionary. And in that case, we initialize an entry in the dictionary with a value of zero. Finally, we increment the count for that letter in the dictionary. To sum up, we've created a dictionary where the keys are each of the letters present in the string and the values are how many times each letter is present.Here you can see how the dictionary can have any number of entries and the pairs of key values always count how many of each letter there are in the string. Also, do you see how our simple code doesn't distinguish between actual letters and special characters like a space? To only count the letters, we'd need to specify which characters we're taking into account. This technique might seem simple at first, but it can be really useful in a lot of cases. Let's say for example that you're analyzing logs in your server and you want to count how many times each type of error appears in the log file. You could easily do this with a dictionary by using the type of error as the key and then incrementing the associated value each time you come across that error type.
+
+---
+* EXTRA NOTES:You can iterate over dictionaries using a for loop, just like with strings, lists, and tuples. This will iterate over the sequence of keys in the dictionary. If you want to access the corresponding values associated with the keys, you could use the keys as indexes. Or you can use the items method on the dictionary, like dictionary.items(). This method returns a tuple for each element in the dictionary, where the first element in the tuple is the key and the second is the value.
+
+If you only wanted to access the keys in a dictionary, you could use the keys() method on the dictionary: dictionary.keys(). If you only wanted the values, you could use the values() method: dictionary.values().
+
+* Dictionaries vs. Lists:Dictionaries and lists are both really useful and each have strengths in different situations. So when is it best to use a list and when is the dictionary the way to go? Think about the kind of information you can represent in each data structure. If you've got a list of information you'd like to collect and use in your script then the list is probably the right approach. For example, if you want to store a series of IP addresses to ping, you could put them all into a list and iterate over them. Or if you had a list of host names and their corresponding IP addresses, you might want to pair them as key values in a dictionary. Because of the way dictionaries work, it's super easy and fast to search for an element in them. Let's say you have a dictionary that has usernames as keys, and the groups they belong to as values. It doesn't matter if you have 10 users or 10,000 users, accessing the entry for a given user will take the same time. 
+ 
+ EX:
+ip_address = ["192.25.23", "192.23.45","8.8.8.8"]
+host_address = {"router": "192.25.23", "localhost": "192.23.45", "google":"8.8.8.8"}
+
+ Amazing, but this isn't true for lists. If you've got a list of 10 elements, and you need to check if one element is in the list, it'll be a very fast check but if your list has 10,000 elements it'll take significantly longer to check if the element you're looking for is there. So in general, you want to use dictionaries when you plan on searching for a specific element. Another interesting difference is the types of values that we can store in lists and dictionaries. In lists, you can store any data type. In dictionaries, we can store any data type for the values but the keys are restricted to specific types. The reasoning behind which types are allowed can get complex and we don't want to bog you down with unnecessary details. So as a rule of thumb, you can use any immutable data type; numbers, booleans, strings and tuples as dictionary keys. But you can't use lists or dictionaries for that. On the flip side, like we said, the values associated with keys can be any type, including lists or even other dictionaries. You can use them to represent more complex data structures like directory trees in the file system. There's a ton of different key value pairs that we need to work with in system administration. So I use dictionaries all the time. They're especially useful with large data sets. When I need to write a script that gets specific keys out of it to manipulate or modify the associated value. But it doesn't always need to be that serious. One-time, just for fun, I wanted to be able to look up which Disney villain is associated with each protagonist. So I created a dictionary that stores a key like Snow White, with the value, evil queen. Pretty good. Mirror, mirror on my screen who's the best coder you've ever seen? There are even more data types available that we haven't checked out yet. One of these data types is a set which is a bit like a cross between a list and a dictionary. A set is used when you want to store a bunch of elements and be certain that there are only present once. Elements of a set must also be immutable. You can think of this as the keys of a dictionary with no associated values or you could see it as a list where what matters isn't the order of the elements but whether an element is in the list or not.
+
+
+* EXTRA NOTES
+Study Guide: Dictionary Methods
+This study guide provides a quick-reference summary of what you learned in this lesson and serves as a guide for the upcoming practice quiz. 
+
+In the Dictionary segment, you learned about the properties of the Python dictionary data type, how dictionaries differ from lists, how to iterate over the contents of a dictionary, and how to use dictionaries with lists and strings.
+
+
+Knowledge
+Python dictionaries are used to organize elements into collections. Dictionaries include one or more keys, with one or more values associated with each key. 
+
+Syntax
+
+my_dictionary = {keyA:value1,value2, keyB:value3,value4}
+
+Operations
+* len(dictionary) - Returns the number of items in a dictionary.
+
+* for key in dictionary - Iterates over each key in a dictionary.
+
+* for key, value in dictionary.items() - Iterates over each key,value pair in a dictionary.
+
+* if key in dictionary - Checks whether a key is in a dictionary.
+
+* dictionary[key] - Accesses a value using the associated key from a dictionary.
+
+* dictionary[key] = value - Sets a value associated with a key.
+
+* del dictionary[key] - Removes a value using the associated key from a dictionary.
+
+
+Methods
+* dictionary.get(key, default) - Returns the value corresponding to a key, or the default value if the specified key is not present.
+
+* dictionary.keys() - Returns a sequence containing the keys in a dictionary.
+
+* dictionary.values() - Returns a sequence containing the values in a dictionary.
+
+* dictionary[key].append(value) - Appends a new value for an existing key.
+
+* dictionary.update(other_dictionary) - Updates a dictionary with the items from another dictionary. Existing entries are replaced; new entries are added.
+
+* dictionary.clear() - Deletes all items from a dictionary.
+
+* dictionary.copy() - Makes a copy of a dictionary.
+
+
+Dictionaries versus Lists 
+* Dictionaries are similar to lists, but there are a few differences:
+
+Both dictionaries and lists:
+* are used to organize elements into collections;
+
+* are used to initialize a new dictionary or list, use empty brackets;
+
+* can iterate through the items or elements in the collection; and
+
+* can use a variety of methods and operations to create and change the collections, like removing and inserting items or elements.
+
+Dictionaries only:
+* are unordered sets;
+
+* have keys that can be a variety of data types, including strings, integers, floats, tuples;.
+
+* can access dictionary values by keys;
+
+* use square brackets inside curly brackets { [ ] };
+
+* use colons between the key and the value(s);
+
+* use commas to separate each key group and each value within a key group;
+
+* make it quicker and easier for a Python interpreter to find specific elements, as compared to a list.
+
+Dictionary Example:
+
+pet_dictionary = {"dogs": ["Yorkie", "Collie", "Bulldog"], "cats": ["Persian", "Scottish Fold", "Siberian"], "rabbits": ["Angora", "Holland Lop", "Harlequin"]}  
+
+
+print(pet_dictionary.get("dogs", 0))
+# Should print ['Yorkie', 'Collie', 'Bulldog']
+
+---
+Lists only:
+* are ordered sets;
+
+* access list elements by index positions;
+
+* require that these indices be integers;
+
+* use square brackets [ ];
+
+* use commas to separate each list element.
+
+List Example:
+
+pet_list  = ["Yorkie", "Collie", "Bulldog", "Persian", "Scottish Fold", "Siberian", "Angora", "Holland Lop", "Harlequin"]
+
+
+print(pet_list[0:3])
+# Should print ['Yorkie', 'Collie', 'Bulldog']
+
+---
+* Coding skills  
+Skill Group 1  
+* Iterate over the key and value pairs of a dictionary using a for loop with the dictionary.items() method to calculate the sum of the values in a dictionary. 
+
+# This function returns the total time, with minutes represented as 
+# decimals (example: 1 hour 30 minutes = 1.5), for all end user time
+# spent accessing a server in a given day. 
+
+
+def sum_server_use_time(Server):
+
+    # Initialize the variable as a float data type, which will be used
+    # to hold the sum of the total hours and minutes of server usage by
+    # end users in a day.
+    total_use_time = 0.0
+
+    # Iterate through the "Server" dictionary’s key and value items 
+    # using a for loop.
+    for key,value in Server.items():
+
+        # For each end user key, add the associated time value to the
+        # total sum of all end user use time.
+        total_use_time += Server[key]
+        
+    # Round the return value and limit to 2 decimal places.
+    return round(total_use_time, 2)  
+
+FileServer = {"EndUser1": 2.25, "EndUser2": 4.5, "EndUser3": 1, "EndUser4": 3.75, "EndUser5": 0.6, "EndUser6": 8}
+
+print(sum_server_use_time(FileServer)) # Should print 20.1
+
+
+Skill Group 2  
+* Concatenate a value, a string, and the key for each item in the dictionary and append to the end of a new list[ ] using the list.append(x) method.  
+
+* Iterate over keys with multiple values from a dictionary using nested for loops with the dictionary.items() method.
+
+# This function receives a dictionary, which contains common employee 
+# last names as keys, and a list of employee first names as values. 
+# The function generates a new list that contains each employees’ full
+# name (First_name Last_Name). For example, the key "Garcia" with the 
+# values ["Maria", "Hugo", "Lucia"] should be converted to a list 
+# that contains ["Maria Garcia", "Hugo Garcia", "Lucia Garcia"].
+
+
+def list_full_names(employee_dictionary):
+    # Initialize the "full_names" variable as a list data type using
+    # empty [] square brackets.  
+    full_names = []
+
+    # The outer for loop iterates through each "last_name" key and 
+    # associated "first_name" values, in the "employee_dictionary" items.
+    for last_name, first_names in employee_dictionary.items():
+
+        # The inner for loop iterates over each "first_name" value in 
+        # the list of "first_names" for one "last_name" key at a time.
+        for first_name in first_names:
+
+            # Append the new "full_names" list with the "first_name" value
+            # concatenated with a space " ", and the key "last_name". 
+            full_names.append(first_name+" "+last_name)
+            
+    # Return the new "full_names" list once the outer for loop has 
+    # completed all iterations. 
+    return(full_names)
+
+
+print(list_full_names({"Ali": ["Muhammad", "Amir", "Malik"], "Devi": ["Ram", "Amaira"], "Chen": ["Feng", "Li"]}))
+# Should print ['Muhammad Ali', 'Amir Ali', 'Malik Ali', 'Ram Devi', 'Amaira Devi', 'Feng Chen', 'Li Chen']
+
+
+Skill Group 3  
+
+* Use the dictionary[key] = value operation to associate a value with a key in a dictionary.   
+
+* Iterate over keys with multiple values from a dictionary, using nested for loops and an if-statement, and the dictionary.items() method.
+
+* Use the dictionary[key].append(value) method to add the key, a string, and the key for each item in the dictionary.
+
+# This function receives a dictionary, which contains resource 
+# categories (keys) with a list of available resources (values) for a 
+# company’s IT Department. The resources belong to multiple categories.
+# The function should reverse the keys and values to show which 
+# categories (values) each resource (key) belongs to. 
+
+
+def invert_resource_dict(resource_dictionary):
+  # Initialize a "new_dictionary" variable as a dict data type using
+  # empty {} curly brackets. 
+    new_dictionary = {}
+    # The outer for loop iterates through each "resource_group" and 
+    # associated "resources" in the "resource_dictionary" items.
+    for resource_group, resources in resource_dictionary.items():
+        # The inner for loop iterates over each "resource" value in 
+        # the list of "resources" for one "resource_group" key at a time.
+        for resource in resources:
+            # The if-statement checks if the current "resource" value has 
+            # been appended as a key to the "new_dictionary" yet.
+            if resource in new_dictionary:
+                # If True, then append the "resource_group" as a value to the
+                # "resource", which is now the key.
+                new_dictionary[resource].append(resource_group)
+            # If False (else), then add the "resource" as a new key with the 
+            # "resource_group" as a value for that key.
+            else:
+                new_dictionary[resource] = [resource_group]
+    # Return the new dictionary once the outer for loop has completed  
+    # all iterations.
+    return(new_dictionary)
+
+
+print(invert_resource_dict({"Hard Drives": ["IDE HDDs", "SCSI HDDs"],
+        "PC Parts":  ["IDE HDDs", "SCSI HDDs", "High-end video cards", "Basic video cards"], "Video Cards": ["High-end video cards", "Basic video cards"]}))
+# Should print {'IDE HDDs': ['Hard Drives', 'PC Parts'], 'SCSI HDDs': ['Hard Drives', 'PC Parts'], 'High-end video cards': ['PC Parts', 'Video Cards'], 'Basic video cards': ['PC Parts', 'Video Cards']}
+---
+Practice Quiz
+
+1.
+Question 1
+The email_list function receives a dictionary, which contains domain names as keys, and a list of users as values. Fill in the blanks to generate a list that contains complete email addresses (e.g. diana.prince@gmail.com).
+
+def email_list(domains):
+	emails = []
+	for ___:
+	  for user in users:
+	    emails.___
+	return(emails)
+
+print(email_list({"gmail.com": ["clark.kent", "diana.prince", "peter.parker"], "yahoo.com": ["barbara.gordon", "jean.grey"], "hotmail.com": ["bruce.wayne"]}))
+
+2.
+Question 2
+The groups_per_user function receives a dictionary, which contains group names with the list of users. Users can belong to multiple groups. Fill in the blanks to return a dictionary with the users as keys and a list of their groups as values.
+
+def groups_per_user(group_dictionary):
+	user_groups = {}
+	# Go through group_dictionary
+	for ___:
+		# Now go through the users in the group
+		for ___:
+			# Now add the group to the the list of
+# groups for this user, creating the entry
+# in the dictionary if necessary
+
+	return(user_groups)
+
+print(groups_per_user({"local": ["admin", "userA"],
+		"public":  ["admin", "userB"],
+		"administrator": ["admin"] }))
+		
+3.
+Question 3
+The dict.update method updates one dictionary with the items coming from the other dictionary, so that existing entries are replaced and new entries are added. What is the content of the dictionary “wardrobe“ at the end of the following code?
+
+wardrobe = {'shirt': ['red', 'blue', 'white'], 'jeans': ['blue', 'black']}
+new_items = {'jeans': ['white'], 'scarf': ['yellow'], 'socks': ['black', 'brown']}
+wardrobe.update(new_items)
+
+
+4.
+Question 4
+ What’s a major advantage of using dictionaries over lists?
+
+
+* Dictionaries are ordered sets
+
+
+* Dictionaries can be accessed by the index number of the element
+
+
+* Elements can be removed and inserted into dictionaries
+
+
+* It’s quicker and easier to find a specific element in a dictionary
+
+5.
+Question 5
+The add_prices function returns the total price of all of the groceries in the  dictionary. Fill in the blanks to complete this function.
+
+def add_prices(basket):
+	# Initialize the variable that will be used for the calculation
+	total = 0
+	# Iterate through the dictionary items
+	for ___:
+		# Add each price to the total calculation
+		# Hint: how do you access the values of
+		# dictionary items?
+		total += ___
+	# Limit the return value to 2 decimal places
+	return round(total, 2)  
+
+groceries = {"bananas": 1.56, "apples": 2.50, "oranges": 0.99, "bread": 4.59, 
+	"coffee": 6.99, "milk": 3.39, "eggs": 2.98, "cheese": 5.44}
+
+print(add_prices(groceries)) # Should print 28.44
